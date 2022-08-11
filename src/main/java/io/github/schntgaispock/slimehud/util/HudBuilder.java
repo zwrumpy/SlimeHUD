@@ -96,7 +96,9 @@ public class HudBuilder {
      * @return The formatted progress bar
      */
     public static String formatProgressBar(int progress, int total) {
-        return HudBuilder.formatProgressBar(100 * progress / total);
+        if (total <= 0) return HudBuilder.formatProgressBar(0);
+        int progressPercent = 100 * progress;
+        return HudBuilder.formatProgressBar( progressPercent / total);
     }
 
     /**
